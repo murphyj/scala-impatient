@@ -30,5 +30,7 @@ class ChapterThreeAnswersSpec extends FlatSpec with Matchers {
         assertResult(Array(1,2,3,4,5))(ChapterThreeAnswers.dedupe(Array(1,1,2,2,3,3,4,4,5,5)))
     }
 
-    
+    it should "filter by specified timezone" in {
+        assertResult(164)(ChapterThreeAnswers.getTimezones("America").length)
+    }
 }

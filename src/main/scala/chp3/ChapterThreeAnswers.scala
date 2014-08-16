@@ -29,6 +29,11 @@ object ChapterThreeAnswers {
     def reverseSortedForBuffer(ints: ArrayBuffer[Int]): Any = {
         ints.sortWith((x, y) => (x < y)).reverse
     }
+
+    def getTimezones(timezone: String): Array[String] = {
+        val filteredTimezones = java.util.TimeZone.getAvailableIDs.filter(_ startsWith s"${timezone}/")
+        filteredTimezones.map(_.replace(s"${timezone}/", ""))
+    }
 }
 
 class ChapterThreeAnswers {
