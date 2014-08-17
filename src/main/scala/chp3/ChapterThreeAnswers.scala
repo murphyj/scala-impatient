@@ -1,5 +1,9 @@
 package chp3
 
+import java.awt.datatransfer._
+import java.util
+
+import scala.collection.mutable
 import scala.collection.mutable.ArrayBuffer
 
 object ChapterThreeAnswers {
@@ -33,6 +37,11 @@ object ChapterThreeAnswers {
     def getTimezones(timezone: String): Array[String] = {
         val filteredTimezones = java.util.TimeZone.getAvailableIDs.filter(_ startsWith s"${timezone}/")
         filteredTimezones.map(_.replace(s"${timezone}/", ""))
+    }
+
+    def flavorMaps() = {
+        var flavors = SystemFlavorMap.getDefaultFlavorMap().asInstanceOf[SystemFlavorMap]
+        var buffer: util.List[String] = flavors.getNativesForFlavor(DataFlavor.imageFlavor)
     }
 }
 
